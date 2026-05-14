@@ -1,16 +1,13 @@
 ﻿# 基于 RNN 的函数签名恢复框架（Function Signature Recovering Using RNN）  
 这是论文 “Analyzing and revivifying function signature inference using deep learning” 的开源组件，该论文发表于 2024 年的 Empirical Software Engineering (EMSE)。
 
-This is the open-source component of our paper "Analyzing and revivifying function signature inference using 
-
-deep learning", published in Empirical Software Engineeing  (EMSE) 2024.
+This is the open-source component of our paper "Analyzing and revivifying function signature inference using deep learning", published in Empirical Software Engineeing  (EMSE) 2024.
 
 # Disclaimer
 
 If, for some weird reason, you think running this code broke your device, you get to keep both pieces.
 
 # 该项目包含三个组成部分：
-
 # There are three components:
 
 #真实标签（Ground Truth）收集
