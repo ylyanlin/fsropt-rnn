@@ -19,7 +19,7 @@ It is development as an LLVM pass, which will collect the groundtruth of the fun
 
 ### In order to collect the ground truth you need to use wllvm to compile the source code. Please go to https://github.com/travitch/whole-program-llvm to find how to compile source code with wllvm and get the whole bitcode.
 
-\# Collect the ground truth based on the generated bitcode.
+Collect the ground truth based on the generated bitcode.
 
 
 &#x20;       \* \*编译LLVM\* 
