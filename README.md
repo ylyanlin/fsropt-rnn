@@ -116,8 +116,8 @@ python fix\_unread.py ../example/ ../insert\_ins\_pickles/cat-clang-O2.pkl ../fi
 Please refer to the ReadMe file in https://github.com/shensq04/EKLAVYA to run the code
 
 ## 项目声明（Project Statement)
-项目名称（Project Name）：fsr-rnn
-项目作者（Author）：Yan Lin
+项目名称（Project Name）：fsr-rnn  
+项目作者（Author）：Yan Lin  
 项目单位（Affiliation）：暨南大学网络空间安全学院（College of Cyber Security, Jinan University)
 
 
