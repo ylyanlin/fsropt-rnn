@@ -8,7 +8,7 @@ This is the open-source component of our paper "Analyzing and revivifying functi
 If, for some weird reason, you think running this code broke your device, you get to keep both pieces.
 
 # 该项目包含三个组成部分（There are three components）:
-## 真实标签（Ground Truth）收集
+## （1）真实标签（Ground Truth）收集
 
 该部分为一个 LLVM Pass，用于收集函数签名的真实标签（ground truth），包括：每个函数的参数数量、参数类型以及间接调用者（indirect caller）的相关信息。
 
@@ -43,37 +43,24 @@ Collect the ground truth based on the generated bitcode.
 
 
 
-# 从二进制文件中提取指令字节的数据处理
+## （2）从二进制文件中提取指令字节的数据处理 （Data Processing to extract instruction bytes from a binary）
+该部分依赖静态二进制分析工具 TypeArmor（This relies on the static binary analysis tool typearmor-master）。
 
-# Data Processing to extract instruction bytes from a binary
 
-该部分依赖静态二进制分析工具 TypeArmor。
-
-This relies on the static binary analysis tool typearmor-master
-
-## 安装
-
-## Installation
-
+### 安装（Installation）
 为了构建静态分析 Pass，首先需要构建 Dyninst。
 注意：以下步骤已在 Ubuntu Desktop 18.04 LTS 上测试通过。
 
 To build the static analysis pass, we first need to build Dyninst.
-
 Note that the following was tested in a Ubuntu Desktop 18.04 LTS.
 
-
-
-安装依赖包
-First install some packages:
+* *安装依赖包（First install some packages:）*
 
 &#x20;   sudo apt-get install build-essential cmake 
     sudo apt-get install libboost-all-dev libelf-dev libiberty-dev
 
 
-下载并构建 Dyninst
-
-Next, download and build Dyninst.
+* *下载并构建 Dyninst（download and build Dyninst.）：*
 
 &#x20;   cd
     wget https://github.com/dyninst/dyninst/archive/v9.3.1.tar.gz
@@ -86,9 +73,7 @@ Next, download and build Dyninst.
     make install
 
 
-构建 TypeArmor
-
-Next, build TypeArmor:
+* *构建 TypeArmor（build TypeArmor）:*
 
 cd typearmor-master
     # update DYNINST\_ROOT in ./envsetup.sh
@@ -102,47 +87,34 @@ cd typearmor-master
     make install
 
 
-## 从二进制中提取信息，在 python-scripts 文件夹中有四个主要脚本，用于从二进制文件中提取信息。
-
-## There are main four scripts in folder python-scripts which will extract information from a binary.
+## （3）从二进制中提取信息，在 python-scripts 文件夹中有四个主要脚本，用于从二进制文件中提取信息。（There are main four scripts in folder python-scripts which will extract information from a binary.）
 
 
-
-### 获取 LLVM 收集的真实标签
-
-### get groundtruth collected by LLVM
+### 获取 LLVM 收集的真实标签（get groundtruth collected by LLVM）
 
 python extract-gt.py ../../example
 
 
 
-### 从二进制中提取指令字节和函数签名
-
-### extract instruction bytes and function signature from a binary
+### 从二进制中提取指令字节和函数签名（extract instruction bytes and function signature from a binary）
 
 python get\_pickles.py --binary\_folder ../example/  --output\_dir ../clean\_pickles --replace\_call 0 --insert\_ins 0 --only\_integer 0 --filer\_out 0
 
 
 
-### 将自定义汇总指令插入到指令字节中，该步骤依赖 TypeArmor。
-
-### Insert our special summarized instructions to the instruction bytes, it relies on the static analysis tool typearmor
+### 将自定义汇总指令插入到指令字节中，该步骤依赖 TypeArmor。（Insert our special summarized instructions to the instruction bytes, it relies on the static analysis tool typearmor）
 
 python insert\_ins.py --binary\_folder ../example/ --output\_dir ../insert\_ins\_pickles --replace\_call 0 --insert\_ins 1  --only\_integer 0 --filer\_out 0 --pickle-folder ../clean\_pickles
 
 
 
-### 修正标签，修正实际上没有使用全部参数的被调用函数（callee）的标签。
-
-### correct the label for callees which actually do not use all arguments, it relies on typearmor and the groundtruth obtained by LLVM
+### 修正标签，修正实际上没有使用全部参数的被调用函数（callee）的标签。（correct the label for callees which actually do not use all arguments, it relies on typearmor and the groundtruth obtained by LLVM）
 
 python fix\_unread.py ../example/ ../insert\_ins\_pickles/cat-clang-O2.pkl ../final\_pickles ../gt
 
 
 
-### 使用深度学习学习函数签名
-
-# Use Deep learning to lean function Signature
+## （4）使用深度学习学习函数签名（Use Deep learning to lean function Signature）
 
 Please refer to the ReadMe file in https://github.com/shensq04/EKLAVYA to run the code
 
