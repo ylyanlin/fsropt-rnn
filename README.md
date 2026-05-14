@@ -15,9 +15,9 @@ If, for some weird reason, you think running this code broke your device, you ge
 It is development as an LLVM pass, which will collect the groundtruth of the function signature, including the number and types if arguments for each function and indirect caller.
 
 
-## 为了收集 ground truth，你需要使用 wllvm 来编译源代码。请前往：https://github.com/travitch/whole-program-llvm查看如何使用 wllvm 编译源代码并生成完整 bitcode。
+### 为了收集 ground truth，你需要使用 wllvm 来编译源代码。请前往：https://github.com/travitch/whole-program-llvm查看如何使用 wllvm 编译源代码并生成完整 bitcode。
 
-## In order to collect the ground truth you need to use wllvm to compile the source code. Please go to https://github.com/travitch/whole-program-llvm to find how to compile source code with wllvm and get the whole bitcode.
+### In order to collect the ground truth you need to use wllvm to compile the source code. Please go to https://github.com/travitch/whole-program-llvm to find how to compile source code with wllvm and get the whole bitcode.
 
 \# Collect the ground truth based on the generated bitcode.
 
