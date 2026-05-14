@@ -22,8 +22,8 @@ It is development as an LLVM pass, which will collect the groundtruth of the fun
 Collect the ground truth based on the generated bitcode.
 
 
-&#x20;       \* \*编译LLVM\* 
-	\* \*Compile LLVM\*
+* *编译LLVM* 
+* *Compile LLVM*
 
 	cd ReSIL/GroundTruth
 	mkdir install
@@ -34,8 +34,8 @@ Collect the ground truth based on the generated bitcode.
 	make install
 
 
-&#x20;      \* \*收集真值\*
-	\* \*Ground truth collection\*
+* *收集真值*
+* *Ground truth collection*
 	you can use the following command to get the ground truth:
 
 	llc -g-truth  -filetype=obj test.bc -o test.clang.o 2> test-llvm.txt
