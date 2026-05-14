@@ -45,9 +45,6 @@ Collect the ground truth based on the generated bitcode.
 
 ## （2）从二进制文件中提取指令字节的数据处理 （Data Processing to extract instruction bytes from a binary）
 该部分依赖静态二进制分析工具 TypeArmor（This relies on the static binary analysis tool typearmor-master）。
-
-
-### 安装（Installation）
 为了构建静态分析 Pass，首先需要构建 Dyninst。
 注意：以下步骤已在 Ubuntu Desktop 18.04 LTS 上测试通过。
 
