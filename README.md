@@ -7,10 +7,8 @@ This is the open-source component of our paper "Analyzing and revivifying functi
 
 If, for some weird reason, you think running this code broke your device, you get to keep both pieces.
 
-# 该项目包含三个组成部分：
-# There are three components:
-
-#真实标签（Ground Truth）收集
+# 该项目包含三个组成部分（There are three components）:
+## 真实标签（Ground Truth）收集
 
 该部分为一个 LLVM Pass，用于收集函数签名的真实标签（ground truth），包括：每个函数的参数数量、参数类型以及间接调用者（indirect caller）的相关信息。
 
