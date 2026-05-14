@@ -24,13 +24,13 @@ Collect the ground truth based on the generated bitcode.
 
 * *编译LLVM （Compile LLVM）*
   
-	cd ReSIL/GroundTruth
-	mkdir install
-	cd install
+	cd ReSIL/GroundTruth  
+	mkdir install  
+	cd install  
 
-	-DCMAKE\_BUILD\_TYPE=Release cmake ../llvm-7.0.0.src
-	make -j4
-	make install
+	-DCMAKE\_BUILD\_TYPE=Release cmake ../llvm-7.0.0.src  
+	make -j4  
+	make install  
 
 
 * *收集真值（Ground truth collection）*
